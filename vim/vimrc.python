@@ -1,0 +1,129 @@
+" ----------------- VUNDLE CONFIGURATION ------------------
+
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Plugins about interface
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Plugins about python
+Plugin 'plytophogy/vim-virtualenv'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'pignacio/vim-yapf-format'
+" Plugins about git
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Other plugins
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+" ----------------- NATIVE VIM CONFIGURATION ------------------
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" Indentation for python files
+au BufNewFile,BufRead *.py 
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+" Flag unnecessary whitespaces
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h call matchadd('BadWhitespace', '\s\+$')
+
+" UTF-8 encoding by default
+set encoding=utf-8
+
+"python with virtualenv support
+python3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  exec(open(activate_this).read(), dict(__file__=activate_this))
+EOF
+
+" Make code look pretty
+let python_highlight_all=1
+syntax on
+
+" Turn ON line numbering
+set nu
+
+" Remove trailing whitespaces on save
+autocmd BufWritePre *.py :%s/\s\+$//e
+
+" Highlight text that exceeds 80 characters
+highlight OverLength ctermbg=darkred ctermfg=white guibg=darkred
+call matchadd('OverLength', '\%>80v.\+')
+
+" Highlight search matches
+set hlsearch
+" Press Return to temporarily get out of the highlighted search
+:nnoremap <CR> :nohlsearch<CR><CR>
+" Press <leader>f to find the current word
+:nnoremap <leader>f :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
+" Search and replace the current word with <leader>h
+:nnoremap <Leader>h :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+" ----------------- PLUGINS CONFIGURATIONS ------------------
+
+" Customize plugin YouCompleteMe
+" remove auto-complete window when done
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>gt :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>gd :YcmCompleter GetDoc<CR>
+
+" Ignore .pyc files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$']
+
+" Set airline theme
+let g:airline_theme='simple'
+let g:airline#extensions#branch#enabled=1
+
+" Configure syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
+
+" Configure YAPF
+let b:yapf_format_style = 'google'
