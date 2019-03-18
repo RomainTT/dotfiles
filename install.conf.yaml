@@ -1,14 +1,15 @@
 - clean: ['~']
 
-- default:
-    create: true
-    relink: true
+- defaults:
+    link:
+      create: true
+      relink: true
 
 - link:
     ~/.gitconfig: git/gitconfig
+    ~/.vim/after: vim/after
     ~/.vimrc: vim/vimrc
     ~/.vimrc.bepo: vim/vimrc.bepo
-    ~/.vimrc.python: vim/vimrc.python
     ~/.zshrc: zsh/zshrc
     ~/.oh-my-zsh: zsh/oh-my-zsh
     ~/.pylintrc: pylint/pylintrc
@@ -16,6 +17,6 @@
     ~/.tmux.conf: tmux/oh-my-tmux/.tmux.conf
     ~/.tmux.conf.local: tmux/tmux.conf.local
 
-- shell: 
+- shell:
   - [git submodule update --init --recursive, Installing submodules]
 

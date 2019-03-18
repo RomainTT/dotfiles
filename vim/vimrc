@@ -1,2 +1,101 @@
+" ---------------------------------------------------------
+" Main vim configuration
+" Contains all the plugins managed by Vundle and their specific
+" configurations.
+" Configurations for file types are in dedicated files in
+" .vim/after/ftplugin
+" ---------------------------------------------------------
+
+" ----------------- VUNDLE CONFIGURATION ------------------
+
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Plugins about interface
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Plugins about python
+Plugin 'plytophogy/vim-virtualenv'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'pignacio/vim-yapf-format'
+" Plugins about git
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Other plugins
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" ----------------- GLOBAL VIM CONFIGURATION ------------------
+
+" Add special config for bépo keyboards
 source ~/.vimrc.bepo
-source ~/.vimrc.python
+
+" Enable syntax highlighting
+syntax on
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" Highlight search matches
+set hlsearch
+" Press Return to temporarily get out of the highlighted search
+:nnoremap <CR> :nohlsearch<CR><CR>
+" Press <leader>f to find the current word
+:nnoremap <leader>f :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
+" Search and replace the current word with <leader>h
+:nnoremap <Leader>h :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+" ----------------- PLUGINS CONFIGURATIONS ------------------
+
+" Customize plugin YouCompleteMe
+" remove auto-complete window when done
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>gt :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>gd :YcmCompleter GetDoc<CR>
+
+" Ignore files in NERDTree
+let NERDTreeIgnore=['\~$']
+
+" Set airline theme
+let g:airline_theme='simple'
+let g:airline#extensions#branch#enabled=1
+
+" Configure syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
+
+" Configure YAPF
+let b:yapf_format_style = 'google'
