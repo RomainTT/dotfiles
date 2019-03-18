@@ -1,40 +1,6 @@
 # This file is to be used with Oh my tmux!
 # https://github.com/gpakosz/.tmux
 
-
-# -- tmux.conf override ----------------------------------------------------------------
-# Here I disable several configurations of Oh My Tmux
-# for 2 main reasons:
-#   - I want to keep using the default keys to avoid beeing lost
-#     when I work on a machine without my config
-#   - I am using a bépo keyboard which is not adapted for those 
-#     customizations.
-
-# pane resizing
-unbind H
-unbind J
-unbind K
-unbind L
-
-# pane navigation
-unbind h
-unbind j
-unbind k
-unbind l
-
-# Window navigation
-unbind C-h
-unbind C-l
-unbind Tab
-bind -r n next-window
-bind -r p previous-window
-bind l last-window
-
-# split
-unbind -
-unbind _
-
-
 # -- windows & pane creation ---------------------------------------------------
 
 # new window retains current path, possible values are:
@@ -312,4 +278,35 @@ tmux_conf_copy_to_os_clipboard=false
 # bind C-a send-prefix
 
 # move status line to top
-#set -g status-position top
+set -g status-position top
+
+# Here I disable several configurations of Oh My Tmux
+# for 2 main reasons:
+#   - I want to keep using the default keys to avoid beeing lost
+#     when I work on a machine without my config
+#   - I am using a bépo keyboard which is not adapted for those 
+#     customizations.
+
+# pane resizing
+unbind H
+unbind J
+unbind K
+unbind L
+
+# pane navigation
+unbind h
+unbind j
+unbind k
+unbind l
+
+# Window navigation
+unbind C-h
+unbind C-l
+unbind Tab
+bind -r n next-window
+bind -r p previous-window
+bind l last-window
+
+# split
+unbind -
+unbind _

@@ -65,16 +65,6 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h call matchadd('BadWhitespace', '\s\+$')
 " UTF-8 encoding by default
 set encoding=utf-8
 
-"python with virtualenv support
-python3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  exec(open(activate_this).read(), dict(__file__=activate_this))
-EOF
-
 " Make code look pretty
 let python_highlight_all=1
 syntax on
