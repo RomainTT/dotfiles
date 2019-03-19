@@ -24,9 +24,6 @@ call matchadd('OverLength', '\%>80v.\+')
 " Make code look pretty
 let python_highlight_all=1
 
-" Turn ON line numbering
-setlocal nu
-
 " Ignore .pyc files in NERDTree
 call add(NERDTreeIgnore, '\.pyc$')
 

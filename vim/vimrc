@@ -54,6 +54,9 @@ source ~/.vimrc.bepo
 " Enable syntax highlighting
 syntax on
 
+" Turn ON line numbering
+setlocal nu
+
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
