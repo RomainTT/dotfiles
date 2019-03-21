@@ -8,6 +8,7 @@
 - link:
     ~/.gitconfig: git/gitconfig
     ~/.vim/after: vim/after
+    ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
     ~/.vimrc: vim/vimrc
     ~/.vimrc.bepo: vim/vimrc.bepo
     ~/.zshrc: zsh/zshrc
