@@ -30,7 +30,7 @@ Plugin 'plytophogy/vim-virtualenv'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'pignacio/vim-yapf-format'
+Plugin 'sergei-dyshel/vim-yapf-format'
 " Plugins about git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
