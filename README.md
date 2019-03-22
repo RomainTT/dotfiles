@@ -25,3 +25,7 @@ rather give a list of things to install manually.
 * [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html)
 * [pylint](https://pylint.readthedocs.io/en/stable/user_guide/installation.html)
 
+## Local changes
+
+* To make local changes to `.zshrc`, create the file `$home/.zshrc.local`
+  and write your configuration in it. It is sourced at the end of the `.zshrc`.
