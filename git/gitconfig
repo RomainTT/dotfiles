@@ -2,10 +2,19 @@
 	name = Romain Taprest
 	email = romain@taprest.fr
 	username = RomainTT
+
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+
 [push]
 	default = matching
+
 [diff]
 	tool = vimdiff
+
+[merge]
+	tool = nfugitive
+
+[mergetool "nfugitive"]
+	cmd = vim -f -c "Gdiff" "$MERGED"

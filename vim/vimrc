@@ -57,12 +57,19 @@ syntax on
 " Turn ON line numbering
 setlocal nu
 
+" Set default tabstop to 4
+set tabstop=4
+
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
 
 " Enable folding with the spacebar
 nnoremap <space> za
+
+" Make Vim autematically read the file again 
+" if it has been modified externally
+set autoread
 
 " Highlight search matches
 set hlsearch
@@ -102,3 +109,7 @@ let g:syntastic_python_checkers = ['pylint']
 
 " Configure YAPF
 let b:yapf_format_style = 'google'
+
+" vim-markdown options
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_new_list_item_indent = 2
