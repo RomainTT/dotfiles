@@ -13,7 +13,7 @@ rather give a list of things to install manually.
 **APT packages:**
 
 * [tmux](apt://tmux)
-* [vim](apt://vim) *(TODO: switch to Neovim)*
+* [vim](apt://vim) 
 * [zsh](apt://zsh)
 
 **Manual installations:**
