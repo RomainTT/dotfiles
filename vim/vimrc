@@ -41,6 +41,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'kshenoy/vim-signature'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -113,3 +114,6 @@ let b:yapf_format_style = 'google'
 " vim-markdown options
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
+
+" vim-signature options
+let g:SignatureMarkTextHLDynamic = 1
