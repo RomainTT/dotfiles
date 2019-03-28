@@ -24,6 +24,7 @@ rather give a list of things to install manually.
 
 * [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html)
 * [pylint](https://pylint.readthedocs.io/en/stable/user_guide/installation.html)
+* [pudb](https://github.com/inducer/pudb)
 
 ## Local changes
 
