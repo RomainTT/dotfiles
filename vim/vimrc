@@ -56,7 +56,7 @@ source ~/.vimrc.bepo
 syntax on
 
 " Turn ON line numbering
-setlocal nu
+set nu
 
 " Set default tabstop to 4
 set tabstop=4
