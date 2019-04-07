@@ -82,6 +82,9 @@ set hlsearch
 " Search and replace the current word with <leader>h
 :nnoremap <Leader>h :%s/\<<C-r><C-w>\>//g<Left><Left>
 
+" Set colorscheme
+colorscheme torte
+
 " ----------------- PLUGINS CONFIGURATIONS ------------------
 
 " Customize plugin YouCompleteMe
