@@ -36,7 +36,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Other plugins
-Plugin 'tmhedberg/SimpylFold'
+Plugin 'pseewald/vim-anyfold'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
