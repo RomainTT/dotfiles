@@ -310,3 +310,6 @@ bind l last-window
 # split
 unbind -
 unbind _
+
+# Synchronization
+bind g set-window-option synchronize-panes
