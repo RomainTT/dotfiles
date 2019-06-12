@@ -99,6 +99,8 @@ let NERDTreeIgnore=['\~$']
 " Set airline theme
 let g:airline_theme='simple'
 let g:airline#extensions#branch#enabled=1
+let g:airline_powerline_fonts = 1
+let g:airline_section_z = '☰ %l/%L:%c'
 
 " Configure syntastic
 set statusline+=%#warningmsg#
