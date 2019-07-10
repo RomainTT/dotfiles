@@ -91,6 +91,12 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Todo management
+# Create the directory for todo file if is does not exists.
+# And add alias to edit it.
+mkdir -p ~/Documents/todo
+alias todo="vim ~/Documents/todo/todo.txt"
+
 # Add config for virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 if [ -f $HOME/.local/bin/virtualenvwrapper.sh ]
@@ -104,6 +110,11 @@ fi
 # Add utility to visualize CSV in console
 function pretty_csv {
 	    column -t -s, -n "$@" | less -F -S -X -K
+    }
+
+# Add utility to visualize json in console
+function pretty_json {
+	    python -m json.tool "$@" | less
     }
 
 # source a local file not in the dotfile repo
