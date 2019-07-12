@@ -5,6 +5,7 @@
 
 " Change map leader
 :let mapleader="è"
+:let maplocalleader="è"
 
 " {W} -> [É]
 " ——————————
