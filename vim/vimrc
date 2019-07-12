@@ -35,13 +35,15 @@ Plugin 'sergei-dyshel/vim-yapf-format'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-" Other plugins
+" Other plugins to make edition easier
 Plugin 'pseewald/vim-anyfold'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'kshenoy/vim-signature'
+" A Plugin to use VIM for todo lists
+Plugin 'freitass/todo.txt-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -81,6 +83,9 @@ set hlsearch
 
 " Search and replace the current word with <leader>h
 :nnoremap <Leader>h :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+" Shortcut to save file
+:nnoremap <Leader>w :w<CR>
 
 " Set colorscheme
 colorscheme torte
@@ -122,3 +127,6 @@ let g:vim_markdown_new_list_item_indent = 2
 
 " vim-signature options
 let g:SignatureMarkTextHLDynamic = 1
+
+" Activate Anyfold by default
+autocmd VimEnter * AnyFoldActivate
