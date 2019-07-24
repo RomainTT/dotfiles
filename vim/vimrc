@@ -51,6 +51,10 @@ filetype plugin indent on    " required
 
 " ----------------- GLOBAL VIM CONFIGURATION ------------------
 
+" Set colorscheme
+" (before everything else because it clears highlights)
+colorscheme torte
+
 " Add special config for bépo keyboards
 source ~/.vimrc.bepo
 
@@ -84,9 +88,6 @@ set hlsearch
 
 " Shortcut to save file
 :nnoremap <Leader>w :w<CR>
-
-" Set colorscheme
-colorscheme torte
 
 " ----------------- PLUGINS CONFIGURATIONS ------------------
 
