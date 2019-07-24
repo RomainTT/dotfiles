@@ -94,5 +94,5 @@ noremap wC <C-w>H
 noremap wR <C-w>L
 
 " colorise les nbsp
-highlight NbSp ctermbg=lightgray guibg=lightred
-call matchadd('NbSp', '\%xa0')
+highlight NbSp ctermbg=lightgray guibg=lightgray 
+call matchadd('NbSp', '\%xA0')
