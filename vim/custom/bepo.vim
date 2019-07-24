@@ -18,9 +18,6 @@ onoremap aé aw
 onoremap aÉ aW
 onoremap ié iw
 onoremap iÉ iW
-" Pour faciliter les manipulations de fenêtres, on utilise {W} comme un Ctrl+W :
-noremap w <C-w>
-noremap W <C-w><C-w>
  
 " [HJKL] -> {CTSR}
 " ————————————————
@@ -79,20 +76,26 @@ noremap » >
  
 " Remaper la gestion des fenêtres
 " ———————————————————————————————
-noremap wt <C-w>j
-noremap ws <C-w>k
-noremap wc <C-w>h
-noremap wr <C-w>l
-noremap wd <C-w>c
-noremap wo <C-w>s
-noremap wp <C-w>o
-noremap w<SPACE> :split<CR>
-noremap w<CR> :vsplit<CR>
-noremap wT <C-w>J
-noremap wS <C-w>K
-noremap wC <C-w>H
-noremap wR <C-w>L
+" Déplacements du curseur
+noremap <C-w>t <C-w>j
+noremap <C-w>s <C-w>k
+noremap <C-w>c <C-w>h
+noremap <C-w>r <C-w>l
+noremap <C-w>l <C-w>p
+" Split
+noremap <C-w>d <C-w>c
+noremap <C-w>h <C-w>s
+" Déplacement des fenêtres
+noremap <C-w>m <C-w>r
+noremap <C-w>M <C-w>R
+noremap <C-w>T <C-w>J
+noremap <C-w>S <C-w>K
+noremap <C-w>C <C-w>H
+noremap <C-w>R <C-w>L
+" Simplification du <C-w> en w pour plus de rapidité
+map w <C-w>
 
 " colorise les nbsp
+" ———————————————————————————————
 highlight NbSp ctermbg=lightgray guibg=lightgray 
 call matchadd('NbSp', '\%xA0')

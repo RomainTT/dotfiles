@@ -10,7 +10,8 @@
     ~/.vim/after: vim/after
     ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
     ~/.vimrc: vim/vimrc
-    ~/.vimrc.bepo: vim/vimrc.bepo
+    ~/.vim/custom/bepo.vim: vim/custom/bepo.vim
+    ~/.vim/custom/window_submode.vim: vim/custom/window_submode.vim
     ~/.zshrc: zsh/zshrc
     ~/.oh-my-zsh: zsh/oh-my-zsh
     ~/.pylintrc: pylint/pylintrc

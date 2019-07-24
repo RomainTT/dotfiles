@@ -25,6 +25,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'kana/vim-submode'
 " Plugins about python
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'vim-scripts/indentpython.vim'
@@ -55,8 +56,11 @@ filetype plugin indent on    " required
 " (before everything else because it clears highlights)
 colorscheme torte
 
+" Add custom window submode
+source ~/.vim/custom/window_submode.vim
+
 " Add special config for bépo keyboards
-source ~/.vimrc.bepo
+source ~/.vim/custom/bepo.vim
 
 " Enable syntax highlighting
 syntax on
