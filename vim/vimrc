@@ -70,7 +70,7 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
 
-" Make Vim autematically read the file again 
+" Make Vim automatically read the file again 
 " if it has been modified externally
 set autoread
 
@@ -78,8 +78,6 @@ set autoread
 set hlsearch
 " Press Return to temporarily get out of the highlighted search
 :nnoremap <CR> :nohlsearch<CR><CR>
-" Press <leader>f to find the current word
-:nnoremap <leader>f :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " Search and replace the current word with <leader>h
 :nnoremap <Leader>h :%s/\<<C-r><C-w>\>//g<Left><Left>
