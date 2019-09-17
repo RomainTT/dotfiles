@@ -99,3 +99,27 @@ map w <C-w>
 " ———————————————————————————————
 highlight NbSp ctermbg=lightgray guibg=lightgray 
 call matchadd('NbSp', '\%xA0')
+
+
+" Change les touches de NERDTree pour bépo
+" ————————————————————————————————————————
+let g:NERDTreeMapActivateNode = "oo"
+let g:NERDTreeMapPreview = "oO"
+let g:NERDTreeMapOpenInTab = "ot"
+let g:NERDTreeMapOpenInTabSilent = "oT"
+let g:NERDTreeMapOpenSplit = "oh"
+let g:NERDTreeMapPreviewSplit = "oH"
+let g:NERDTreeMapOpenVSplit = "ov"
+let g:NERDTreeMapPreviewVSplit = "oV"
+let g:NERDTreeMapOpenRecursively = "oR"
+let g:NERDTreeMapJumpNextSibling = "r"
+let g:NERDTreeMapJumpFirstChild = "C"
+let g:NERDTreeMapJumpPrevSibling= "c"
+let g:NERDTreeMapJumpParent = "S"
+let g:NERDTreeMapJumpLastChild = "R"
+let g:NERDTreeMapChangeRoot = "gcr"
+let g:NERDTreeMapRefresh = "gr"
+let g:NERDTreeMapRefreshRoot = "gR"
+let g:NERDTreeMapChdir = "gcd"
+let g:NERDTreeMapToggleHidden = "h"
+let g:NERDTreeMapCWD = "gCD"

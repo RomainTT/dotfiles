@@ -84,6 +84,8 @@ set autoread
 
 " Highlight search matches
 set hlsearch
+" Change default color of matches
+hi Search cterm=NONE ctermfg=black ctermbg=yellow
 " Press Return to temporarily get out of the highlighted search
 :nnoremap <CR> :nohlsearch<CR><CR>
 
@@ -108,7 +110,7 @@ let NERDTreeIgnore=['\~$']
 let g:airline_theme='simple'
 let g:airline#extensions#branch#enabled=1
 let g:airline_powerline_fonts = 1
-let g:airline_section_z = '☰ %l/%L:%c'
+let g:airline_section_z = '☰ %l/%L:%v'
 
 " Configure syntastic
 set statusline+=%#warningmsg#
