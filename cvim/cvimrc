@@ -1,0 +1,53 @@
+" THIS IS A CONFIGURATION FOR THE CHROME BROWSER PLUGIN 'CVIM'
+
+" Search engines
+let searchengine qwant = ["https://www.qwant.com", "https://www.qwant.com/?q=%s"]
+let default engine = "qwant"
+let completionengines = ["qwant"]
+" Map leader for bépo
+let mapleader = "è"
+" Move in the page
+unmap h j k l
+unmap c t s r
+map c scrollLeft
+map t scrollDown
+map s scrollUp
+map r scrollRight
+" Move between tabs
+unmap gt gT
+map gb previousTab
+map T previousTab
+map gé nextTab
+map S nextTab
+" Manage tabs
+map gt :tabnew
+unmap gxt gxT
+map gxb closeTabLeft
+map gxé closeTabRight
+map gr reloadTab
+" Search in History
+unmap I
+map h :history
+" Links
+unmap f F
+map l createHint
+map L createTabbedHint
+" New mapping for visual mode
+setBepoVisualMappings -> {{
+Visual.movements = {
+  r: ['right', 'character'],
+  c: ['left', 'character'],
+  s: ['left', 'line'],
+  t: ['right', 'line'],
+  é: ['right', 'word'],
+  b: ['left', 'word'],
+  0: ['left', 'lineboundary'],
+  $: ['right', 'lineboundary'],
+  G: ['right', 'documentboundary']
+};
+}}
+call setBepoVisualMappings
+" Move backward/forward in page history
+unmap D
+map C goBack
+map R goForward
