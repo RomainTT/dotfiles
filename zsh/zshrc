@@ -97,6 +97,9 @@ export EDITOR='vim'
 mkdir -p ~/Documents/todo
 alias todo="vim ~/Documents/todo/todo.txt"
 
+# Shortcut for weather forecasts
+alias weather="curl 'wttr.in/velizy'"
+
 # Add config for virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 if [ -f $HOME/.local/bin/virtualenvwrapper.sh ]
@@ -116,6 +119,10 @@ function pretty_csv {
 function pretty_json {
 	    python -m json.tool "$@" | less
     }
+
+function pyclean {
+		find . -regex '^.*\(__pycache__\|\.py[co]\)$' -delete
+	}
 
 # source a local file not in the dotfile repo
 if [ -f $HOME/.zshrc.local ]
