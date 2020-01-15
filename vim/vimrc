@@ -26,6 +26,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kana/vim-submode'
+Plugin 'gcmt/taboo.vim'
+Plugin 'NLKNguyen/papercolor-theme'
 " Plugins about python
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'vim-scripts/indentpython.vim'
@@ -54,7 +56,8 @@ filetype plugin indent on    " required
 
 " Set colorscheme
 " (before everything else because it clears highlights)
-colorscheme torte
+set background=dark
+colorscheme PaperColor
 
 " Add custom window submode
 source ~/.vim/custom/window_submode.vim
@@ -91,6 +94,9 @@ hi Search cterm=NONE ctermfg=black ctermbg=yellow
 
 " Search and replace the current word with <leader>h
 :nnoremap <Leader>h :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+" Search the current selection with / in visual mode
+:vnoremap / y<ESC>/\V<c-r>=escape(@",'/\:')<CR><CR>
 
 " Shortcut to save file
 :nnoremap <Leader>w :w<CR>
