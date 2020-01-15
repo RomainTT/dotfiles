@@ -318,3 +318,6 @@ bind h split-pane -v
 
 # Synchronization
 bind g set-window-option synchronize-panes
+
+# Last session with 'L'
+bind L switch-client -l
