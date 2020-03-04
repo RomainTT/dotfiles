@@ -102,6 +102,9 @@ hi Search cterm=NONE ctermfg=black ctermbg=yellow
 " Shortcut to save file
 :nnoremap <Leader>w :w<CR>
 
+" A custom command to format json using jq
+command! -range -nargs=0 -bar JQ <line1>,<line2>!jq --tab .
+
 " ----------------- PLUGINS CONFIGURATIONS ------------------
 
 " Customize plugin YouCompleteMe
