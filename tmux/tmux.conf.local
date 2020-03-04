@@ -266,9 +266,10 @@ tmux_conf_copy_to_os_clipboard=false
 #set -g mouse on
 
 # force Vi mode
-#   really you should export VISUAL or EDITOR environment variable, see manual
-#set -g status-keys vi
-#set -g mode-keys vi
+# It seems that my EDITOR env variable is set AFTER tmux is initialized,
+# I don’t know why. Hence I must force this conf.
+set -g status-keys vi
+set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
 # set -gu prefix2
@@ -321,3 +322,9 @@ bind g set-window-option synchronize-panes
 
 # Last session with 'L'
 bind L switch-client -l
+
+# Use bépo keys to move in visual mode
+bind -T copy-mode-vi c send -X cursor-left
+bind -T copy-mode-vi t send -X cursor-down
+bind -T copy-mode-vi s send -X cursor-up
+bind -T copy-mode-vi r send -X cursor-right
