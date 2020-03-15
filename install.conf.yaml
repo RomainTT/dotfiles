@@ -12,6 +12,7 @@
     ~/.vimrc: vim/vimrc
     ~/.vim/custom/bepo.vim: vim/custom/bepo.vim
     ~/.vim/custom/window_submode.vim: vim/custom/window_submode.vim
+    ~/.vim/spell: vim/spell
     ~/.zshrc: zsh/zshrc
     ~/.oh-my-zsh: zsh/oh-my-zsh
     ~/.pylintrc: pylint/pylintrc
