@@ -45,7 +45,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'kshenoy/vim-signature'
-Plugin 'vim-scripts/taglist.vim'
 " A Plugin to use VIM for todo lists
 Plugin 'freitass/todo.txt-vim'
 
