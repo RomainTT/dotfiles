@@ -38,6 +38,7 @@ Plugin 'sergei-dyshel/vim-yapf-format'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'christoomey/vim-conflicted'
 " Other plugins to make edition easier
 Plugin 'pseewald/vim-anyfold'
 Plugin 'terryma/vim-multiple-cursors'
