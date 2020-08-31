@@ -1,0 +1,28 @@
+# Bépo left right up down
+unmap h
+unmap j
+unmap k
+unmap l
+map t scrollDown
+map s scrollUp
+map c scrollLeft
+map r scrollRight
+
+unmap H
+unmap J
+unmap K
+unmap L
+map C goBack
+map T previousTab
+map S nextTab
+map R goForward
+
+map gr reload
+map gt createTab
+map gb previousTab
+map gé nextTab
+
+unmap f
+unmap F
+map l LinkHints.activateMode
+map L LinkHints.activateModeToOpenInNewTab
