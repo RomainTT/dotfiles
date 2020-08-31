@@ -8,13 +8,15 @@
 	excludesfile = ~/.gitignore
 
 [push]
-	default = matching
+	default = simple
 
 [diff]
 	tool = vimdiff
 
 [merge]
-	tool = nfugitive
+	tool = vim +Conflicted
 
 [mergetool "nfugitive"]
 	cmd = vim -f -c "Gdiff" "$MERGED"
+[mergetool "vim-conflicted"]
+	cmd = vim +Conflicted
