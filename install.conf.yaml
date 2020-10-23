@@ -7,12 +7,7 @@
 
 - link:
     ~/.gitconfig: git/gitconfig
-    ~/.vim/after: vim/after
-    ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
-    ~/.vimrc: vim/vimrc
-    ~/.vim/custom/bepo.vim: vim/custom/bepo.vim
-    ~/.vim/custom/window_submode.vim: vim/custom/window_submode.vim
-    ~/.vim/spell: vim/spell
+    ~/.config/nvim: nvim
     ~/.zshrc: zsh/zshrc
     ~/.oh-my-zsh: zsh/oh-my-zsh
     ~/.pylintrc: pylint/pylintrc

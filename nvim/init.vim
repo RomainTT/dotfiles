@@ -2,7 +2,6 @@
 " Main vim configuration
 " Contains all the plugins managed by Vundle and their specific
 " configurations.
-" Configurations for file types are in dedicated files in
 " .vim/after/ftplugin
 " ---------------------------------------------------------
 
@@ -12,14 +11,15 @@ set nocompatible              " required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
+call vundle#rc("~/.config/nvim/bundle/")
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Plugins about interface
 Plugin 'scrooloose/nerdtree'
@@ -31,9 +31,10 @@ Plugin 'NLKNguyen/papercolor-theme'
 " Plugins about python
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'sergei-dyshel/vim-yapf-format'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'deoplete-plugins/deoplete-jedi'
+Plugin 'neomake/neomake'
 " Plugins about git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
@@ -58,13 +59,13 @@ filetype plugin indent on    " required
 " Set colorscheme
 " (before everything else because it clears highlights)
 set background=dark
-colorscheme PaperColor
+" colorscheme PaperColor
 
 " Add custom window submode
-source ~/.vim/custom/window_submode.vim
+source ~/.config/nvim/custom/window_submode.vim
 
 " Add special config for bépo keyboards
-source ~/.vim/custom/bepo.vim
+source ~/.config/nvim/custom/bepo.vim
 
 " Enable syntax highlighting
 syntax on
@@ -107,11 +108,14 @@ command! -range -nargs=0 -bar JQ <line1>,<line2>!jq --tab .
 
 " ----------------- PLUGINS CONFIGURATIONS ------------------
 
-" Customize plugin YouCompleteMe
-" remove auto-complete window when done
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>gt :YcmCompleter GoToDefinitionElseDeclaration<CR>
-map <leader>gd :YcmCompleter GetDoc<CR>
+" Configure deoplete
+let g:deoplete#enable_at_startup = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" Configure neomake
+let g:neomake_python_enabled_makers = ['pylint']
+call neomake#configure#automake('nrwi', 500)
 
 " Ignore files in NERDTree
 let NERDTreeIgnore=['\~$']
@@ -121,19 +125,6 @@ let g:airline_theme='simple'
 let g:airline#extensions#branch#enabled=1
 let g:airline_powerline_fonts = 0
 let g:airline_section_z = '☰ %l/%L:%v'
-
-" Configure syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pylint']
-" see :h syntastic-loclist-callback
-function! SyntasticCheckHook(errors)
-    if !empty(a:errors)
-        let g:syntastic_loc_list_height = min([len(a:errors), 10])
-    endif
-endfunction
 
 " Configure YAPF
 let b:yapf_format_style = 'google'
@@ -147,3 +138,6 @@ let g:SignatureMarkTextHLDynamic = 1
 
 " Activate Anyfold by default
 autocmd VimEnter * AnyFoldActivate
+
+" For Git diff
+set diffopt+=vertical
