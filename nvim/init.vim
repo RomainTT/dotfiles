@@ -34,6 +34,8 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'deoplete-plugins/deoplete-jedi'
 Plugin 'neomake/neomake'
 Plugin 'psf/black'
+" Plugins about Rust
+Plugin 'rust-lang/rust.vim'
 " Plugins about git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
@@ -71,6 +73,9 @@ syntax on
 
 " Turn ON line numbering
 set nu
+
+" Do not let the curser get too close to the edge
+set scrolloff=3
 
 " Set default tabstop to 4
 set tabstop=4
@@ -112,6 +117,7 @@ let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
+
 " Configure neomake
 let g:neomake_python_enabled_makers = ['pylint']
 call neomake#configure#automake('nrwi', 500)
@@ -122,6 +128,7 @@ hi NeomakeVirtualtextMessage ctermbg=234 ctermfg=LightGrey
 
 " Language formatting with plugins
 :autocmd Filetype python nnoremap <leader>f :Black<CR>
+:autocmd Filetype rust nnoremap <leader>f :RustFmt<CR>
 
 " Ignore files in NERDTree
 let NERDTreeIgnore=['\~$']
