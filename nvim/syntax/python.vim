@@ -17,9 +17,9 @@ setlocal encoding=utf-8
 highlight BadWhitespace ctermbg=red guibg=darkred
 call matchadd('BadWhitespace', '\s\+$')
 
-" Highlight text that exceeds 80 characters
+" Highlight text that exceeds 88 characters
 highlight OverLength ctermbg=darkred ctermfg=white guibg=darkred
-call matchadd('OverLength', '\%>80v.\+')
+call matchadd('OverLength', '\%>88v.\+')
 
 " Make code look pretty
 let python_highlight_all=1

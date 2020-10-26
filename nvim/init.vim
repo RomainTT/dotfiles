@@ -30,11 +30,10 @@ Plugin 'gcmt/taboo.vim'
 Plugin 'NLKNguyen/papercolor-theme'
 " Plugins about python
 Plugin 'plytophogy/vim-virtualenv'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'sergei-dyshel/vim-yapf-format'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'deoplete-plugins/deoplete-jedi'
 Plugin 'neomake/neomake'
+Plugin 'psf/black'
 " Plugins about git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
@@ -59,7 +58,7 @@ filetype plugin indent on    " required
 " Set colorscheme
 " (before everything else because it clears highlights)
 set background=dark
-" colorscheme PaperColor
+colorscheme PaperColor
 
 " Add custom window submode
 source ~/.config/nvim/custom/window_submode.vim
@@ -116,6 +115,13 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " Configure neomake
 let g:neomake_python_enabled_makers = ['pylint']
 call neomake#configure#automake('nrwi', 500)
+hi NeomakeVirtualtextError ctermbg=234 ctermfg=Red
+hi NeomakeVirtualtextWarning ctermbg=234 ctermfg=LightYellow
+hi NeomakeVirtualtextInfo ctermbg=234 ctermfg=White
+hi NeomakeVirtualtextMessage ctermbg=234 ctermfg=LightGrey
+
+" Language formatting with plugins
+:autocmd Filetype python nnoremap <leader>f :Black<CR>
 
 " Ignore files in NERDTree
 let NERDTreeIgnore=['\~$']
