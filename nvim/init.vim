@@ -31,6 +31,7 @@ Plugin 'NLKNguyen/papercolor-theme'
 " Plugins about python
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'Shougo/echodoc.vim'
 Plugin 'deoplete-plugins/deoplete-jedi'
 Plugin 'neomake/neomake'
 Plugin 'psf/black'
@@ -48,6 +49,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'kshenoy/vim-signature'
+Plugin 'Yggdroot/indentLine'
+Plugin 'chrisbra/csv.vim'
 " A Plugin to use VIM for todo lists
 Plugin 'freitass/todo.txt-vim'
 
@@ -117,6 +120,9 @@ let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
+" Configure echodoc
+let g:echodoc#enable_at_startup	= 1
+let g:echodoc#type = "virtual"
 
 " Configure neomake
 let g:neomake_python_enabled_makers = ['pylint']
@@ -127,20 +133,23 @@ hi NeomakeVirtualtextInfo ctermbg=234 ctermfg=White
 hi NeomakeVirtualtextMessage ctermbg=234 ctermfg=LightGrey
 
 " Language formatting with plugins
-:autocmd Filetype python nnoremap <leader>f :Black<CR>
-:autocmd Filetype rust nnoremap <leader>f :RustFmt<CR>
+autocmd Filetype python nnoremap <leader>f :Black<CR>
+autocmd Filetype rust nnoremap <leader>f :RustFmt<CR>
 
 " Ignore files in NERDTree
 let NERDTreeIgnore=['\~$']
+" Start NERDTree if nvim is launched from a git repo
+" and no file is opened at start
+silent !git rev-parse --is-inside-work-tree
+if !v:shell_error && @% == ""
+		autocmd VimEnter * NERDTree
+endif
 
 " Set airline theme and configure the status line
 let g:airline_theme='simple'
 let g:airline#extensions#branch#enabled=1
 let g:airline_powerline_fonts = 0
 let g:airline_section_z = '☰ %l/%L:%v'
-
-" Configure YAPF
-let b:yapf_format_style = 'google'
 
 " vim-markdown options
 let g:vim_markdown_frontmatter = 1
@@ -154,3 +163,6 @@ autocmd VimEnter * AnyFoldActivate
 
 " For Git diff
 set diffopt+=vertical
+
+" For IndentLine
+let g:indentLine_char = '┆'
