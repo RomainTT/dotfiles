@@ -44,13 +44,11 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'christoomey/vim-conflicted'
 " Other plugins to make edition easier
 Plugin 'pseewald/vim-anyfold'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'kshenoy/vim-signature'
 Plugin 'Yggdroot/indentLine'
 Plugin 'chrisbra/csv.vim'
+Plugin 'tpope/vim-surround'
 " A Plugin to use VIM for todo lists
 Plugin 'freitass/todo.txt-vim'
 
@@ -99,19 +97,22 @@ set hlsearch
 " Change default color of matches
 hi Search cterm=NONE ctermfg=black ctermbg=yellow
 " Press Return to temporarily get out of the highlighted search
-:nnoremap <CR> :nohlsearch<CR><CR>
+nnoremap <CR> :nohlsearch<CR><CR>
 
 " Search and replace the current word with <leader>h
-:nnoremap <Leader>h :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <Leader>h :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Search the current selection with / in visual mode
-:vnoremap / y<ESC>/\V<c-r>=escape(@",'/\:')<CR><CR>
+vnoremap / y<ESC>/\V<c-r>=escape(@",'/\:')<CR><CR>
 
 " Shortcut to save file
-:nnoremap <Leader>w :w<CR>
+nnoremap <Leader>w :w<CR>
 
 " A custom command to format json using jq
 command! -range -nargs=0 -bar JQ <line1>,<line2>!jq --tab .
+
+" No concealing
+set conceallevel=0
 
 " ----------------- PLUGINS CONFIGURATIONS ------------------
 
@@ -151,13 +152,8 @@ let g:airline#extensions#branch#enabled=1
 let g:airline_powerline_fonts = 0
 let g:airline_section_z = '☰ %l/%L:%v'
 
-" vim-markdown options
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_new_list_item_indent = 2
-
 " vim-signature options
 let g:SignatureMarkTextHLDynamic = 1
-
 " Activate Anyfold by default
 autocmd VimEnter * AnyFoldActivate
 
@@ -166,3 +162,21 @@ set diffopt+=vertical
 
 " For IndentLine
 let g:indentLine_char = '┆'
+
+" Configure vim-surround
+let g:surround_no_mappings = 1
+nmap <leader>sd  <Plug>Dsurround
+nmap <leader>sc  <Plug>Csurround
+nmap <leader>sC  <Plug>CSurround
+nmap <leader>sy  <Plug>Ysurround
+nmap <leader>sY  <Plug>YSurround
+nmap <leader>sys <Plug>Yssurround
+nmap <leader>sYs <Plug>YSsurround
+xmap S   <Plug>VSurround
+xmap gS  <Plug>VgSurround
+imap    <C-S> <Plug>Isurround
+"imap    <C-G>s <Plug>Isurround
+"imap    <C-G>S <Plug>ISurround
+" A shortcut to add surroundings to the current word
+nmap <leader>sw <leader>syiw
+nmap <leader>sW <leader>syiW
