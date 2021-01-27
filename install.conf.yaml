@@ -14,6 +14,7 @@
     ~/.tmux: tmux/oh-my-tmux
     ~/.tmux.conf: tmux/oh-my-tmux/.tmux.conf
     ~/.tmux.conf.local: tmux/tmux.conf.local
+    ~/.tigrc: tig/tigrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
